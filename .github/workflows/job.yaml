@@ -1,0 +1,9 @@
+name: CI
+on: [pull_request]
+jobs: 
+    build: 
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: docker run -name ademirpereira-desafio5afio5 -d -p 3000:3000 ademirpereira/desafio-5
+            - run: docker exec ademirpereira-desafio5 npm run test
